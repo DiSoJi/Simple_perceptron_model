@@ -13,13 +13,13 @@ sigmoid_func = act_funcs.Sigmoid_Func() #Define out activation function
 neural_network = perceptron.Perceptron(sigmoid_func, bias=0, input_size=3, learning_rate=1) #Define the perceptron with the act.func and the number of inputs
 
 #Some training inputs
-training_inputs = np.array([[0,1,0.7],
-                            [0.5,0.2,0.1],
-                            [0.1,0.9,0.3],
-                            [0.6,0.7,0.4]])
+training_inputs = np.array([[0,0,1],
+                            [1,1,1],
+                            [1,0,1],
+                            [0,1,1]])
 
 #Their respective output 
-training_outputs = np.array([[0.7,0.52,0.37,0.88]]).T #Transposed to have it as a single coulum matriz with 4 rows
+training_outputs = np.array([[0,1,1,0]]).T #Transposed to have it as a single coulum matriz with 4 rows
 
 #Begin training with the data batch and define number of epochs
 neural_network.train(training_inputs, training_outputs, 1000) 
@@ -27,14 +27,14 @@ neural_network.train(training_inputs, training_outputs, 1000)
 #Let's see the final weights! Yay!
 print(neural_network.weights)
 while(True): #ctrl+C if you want to exit
-#Let's input a new input to test the Neuron
+    #Let's input a new input to test the Neuron
     i1 = str(input("Input 1: "))
     i2 = str(input("Input 2: "))
     i3 = str(input("Input 3: "))
 
 
 
-#In case you make some mistake with the inputs I added a try. Thank me later (probably at 3:00 am or something like that)
+    #In case you make some mistake with the inputs I added a try. Thank me later (probably at 3:00 am or something like that)
     try:
         
         print("Perceptrons result: ")
