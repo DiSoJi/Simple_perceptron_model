@@ -17,7 +17,7 @@ class Perceptron():
     #Initialization method.
     #Here we define which activation function we are gonna use, initialize the weights, the bias and the learning rate
     def __init__(self, activation_function, input_size=3, bias=0, learning_rate = 1): #Some default values for simplicity
-        #Uncomment in case you want to seed the initialization of the weights for debbuggin' purposes (or as i call it: play around, thrwarthing plans)
+        #Uncomment in case you want to seed the initialization of the weights for debbuggin' purposes (or as i call it: play around, thwarthing plans)
         #np.random.seed(1) #Change 1 to the seed you wish
         self.weights = 2 * np.random.random((input_size, 1)) #3x1 matrix with random values
         self.activation_function = activation_function 
@@ -29,8 +29,10 @@ class Perceptron():
     #sum(weight*input + bias) for every input, as linear function as you can see
     #Tranfer function is passed to the activation function, the result is our "prediction"
     def predict(self, inputs):
-        transfer_func = np.dot(inputs.astype(float), self.weights) + self.bias
-        output = self.activation_function.run(transfer_func)
+        #The bias value is multiplied by the amount of inputs since it is being added 
+        #to the overall result of the sum of the w*x
+        transfer_func = np.dot(inputs.astype(float), self.weights) + self.bias #This is equivalent to E(w*x) + b
+        output = self.activation_function.run(transfer_func) #This is equivalent to o = f(E(w*x) + b)
         return output
     
     #Backpropagation weight correction algorithm
