@@ -8,4 +8,4 @@ I hope to add more content to this repository if time allows, in the future!
 ## FAQ:
 
 ¿Could this neuron be used to build a multi-layered multi-neuron model?
-R/ Yes, just need to initialize the neurons, write the "synapsys" code and the network level back propagation. Also the training process must be extracted from the neuron model code to be written into the main file.
+R/ Yes, just need to initialize the neurons, write the "synapsys" code and the network level back propagation.

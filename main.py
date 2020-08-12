@@ -35,7 +35,10 @@ training_inputs = np.array([[0,0,1],
 training_outputs = np.array([[0,1,1,0]]).T #Transposed to have it as a single coulum matriz with 4 rows
 
 #Begin training with the data batch and define number of epochs
-neural_network.train(training_inputs, training_outputs, 10000) 
+
+epochs = 10000
+for epoch in range(epochs): #Training loop removed from the neuron's model. This makes training an network possible
+    neural_network.train(training_inputs, training_outputs) 
 
 #Let's see the final weights! Yay!
 print("Final Weights")

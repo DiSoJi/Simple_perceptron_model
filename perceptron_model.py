@@ -23,7 +23,7 @@ class Perceptron():
         self.activation_function = activation_function 
         self.bias = bias
         self.learning_rate = learning_rate
-    
+        self.perceptron_output = 0
     #Run function, this returns the prediction for an input set
     #Dot product of input set with the weights and the addition of bias, called transfer function: 
     #sum(weight*input + bias) for every input, as linear function as you can see
@@ -49,13 +49,12 @@ class Perceptron():
     #We get the predictions for the training inputs
     #We calculate the error with the predictions - the difference
     #Then we get the adjustments (using back propagation) and therefore adjust the weights
-    def train(self, inputs, outputs, epochs):
-        for epoch in range(epochs):
-            perceptron_output = self.predict(inputs)
+    def train(self, inputs, outputs):
+        self.perceptron_output = self.predict(inputs)
             
-            prediction_error = outputs - perceptron_output
+        prediction_error = outputs - self.perceptron_output
             
-            weights_adjustments = self.back_propagation(prediction_error, inputs, perceptron_output)
+        weights_adjustments = self.back_propagation(prediction_error, inputs, self.perceptron_output)
             
-            self.weights += weights_adjustments
+        self.weights += weights_adjustments
             
